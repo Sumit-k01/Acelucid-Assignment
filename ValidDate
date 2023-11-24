@@ -1,0 +1,37 @@
+using System.Text.RegularExpressions;
+
+namespace Assignment2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Enter a string:");
+            string inputString = Console.ReadLine();
+
+            Console.WriteLine("Valid dates (MMDDYYYY) found in the string:");
+
+            for (int i = 0; i <= inputString.Length - 8; i++)
+            {
+                string potentialDate = inputString.Substring(i, 8);
+                if (IsMMDDYYYYDate(potentialDate))
+                {
+                    Console.WriteLine(potentialDate);
+                }
+            }
+        }
+
+        static bool IsMMDDYYYYDate(string text)
+        {
+            if (text.Length != 8)
+                return false;
+
+            if (DateTime.TryParseExact(text, "MMddyyyy", null, System.Globalization.DateTimeStyles.None, out _))
+                return true;
+
+            return false;
+
+        }
+    }
+}
