@@ -1,0 +1,26 @@
+namespace Assignment1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a height: ");
+            int height = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= height; i++)
+            {
+                for (int j = 1; j <= height - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                for (int j = 1; j <= i * 2 - 1; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
+     }
+  }
+
